@@ -422,7 +422,7 @@ const TIPOS = ["Exposição", "Espetáculo", "Temporada", "Mostra", "Show", "Cir
 const ESPACOS = ["Exposições 1", "Exposições 2", "Exposições 3", "Grande Sala", "Teatro I", "Teatro II", "Sala Vídeo", "Espaço Cultural", "A definir"];
 const CLASSIFICACOES = ["Livre", "10 anos", "12 anos", "14 anos", "16 anos", "18 anos"];
 const ENTRADAS = ["Gratuita", "Paga", "Meia-entrada disponível"];
-const STORAGE_KEY = "ccbb-programacao-v3";
+const FIREBASE_URL = "https://ccbb-programacao.firebaseio.com";
 const CLOUDINARY_CLOUD = "dpelqzyid";
 const CLOUDINARY_PRESET = "ccbb_upload";
 const ChevronLeft = () => /*#__PURE__*/React.createElement("svg", {
@@ -632,6 +632,20 @@ const Upload = () => /*#__PURE__*/React.createElement("svg", {
   x2: "12",
   y2: "15"
 }));
+const Refresh = () => /*#__PURE__*/React.createElement("svg", {
+  width: "13",
+  height: "13",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("polyline", {
+  points: "23 4 23 10 17 10"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M20.49 15a9 9 0 1 1-2.12-9.36L23 10"
+}));
 const ImageIcon = () => /*#__PURE__*/React.createElement("svg", {
   width: "24",
   height: "24",
@@ -696,6 +710,24 @@ const fmtPeriodo = (i, f) => {
   if (!f || i === f) return fmtData(i);
   return `${fmtData(i)} — ${fmtData(f)}`;
 };
+async function carregarFirebase() {
+  const res = await fetch(`${FIREBASE_URL}/eventos.json`);
+  if (!res.ok) throw new Error("Erro ao carregar");
+  const data = await res.json();
+  if (!data) return [];
+  if (Array.isArray(data)) return data.filter(Boolean);
+  return Object.values(data).filter(Boolean);
+}
+async function salvarFirebase(lista) {
+  const res = await fetch(`${FIREBASE_URL}/eventos.json`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(lista)
+  });
+  if (!res.ok) throw new Error("Erro ao salvar");
+}
 async function uploadCloudinary(file) {
   const fd = new FormData();
   fd.append("file", file);
@@ -712,13 +744,11 @@ function ImgEvento({
   ev,
   className
 }) {
-  if (ev.imagemUrl) {
-    return /*#__PURE__*/React.createElement("img", {
-      className: className,
-      src: ev.imagemUrl,
-      alt: ev.titulo
-    });
-  }
+  if (ev.imagemUrl) return /*#__PURE__*/React.createElement("img", {
+    className: className,
+    src: ev.imagemUrl,
+    alt: ev.titulo
+  });
   return /*#__PURE__*/React.createElement("div", {
     className: "card-ph"
   }, /*#__PURE__*/React.createElement("span", {
@@ -741,7 +771,7 @@ function CampoImagem({
   form,
   setForm
 }) {
-  const [estado, setEstado] = useState("idle"); // idle | enviando | ok | erro
+  const [estado, setEstado] = useState("idle");
   const inputRef = useRef();
   const handleImg = async e => {
     const f = e.target.files[0];
@@ -756,9 +786,10 @@ function CampoImagem({
       setEstado("ok");
     } catch (_) {
       setEstado("erro");
-      alert("Erro ao enviar imagem. Verifique a conexão e tente novamente.");
+      alert("Erro ao enviar imagem. Verifique a conexão.");
     }
   };
+  const label = form.imagemUrl ? estado === "enviando" ? "Enviando…" : "✅ Imagem salva — clique para trocar" : estado === "enviando" ? "Enviando para a nuvem…" : estado === "erro" ? "❌ Erro — clique para tentar de novo" : "Clique para escolher a imagem";
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "fl"
   }, "Imagem"), /*#__PURE__*/React.createElement("label", {
@@ -777,9 +808,9 @@ function CampoImagem({
     style: {
       color: 'var(--azul)'
     }
-  }, "\u23F3 Aguarde, enviando imagem\u2026") : /*#__PURE__*/React.createElement(CloudUp, null)), /*#__PURE__*/React.createElement("div", {
+  }, "\u23F3") : /*#__PURE__*/React.createElement(CloudUp, null)), /*#__PURE__*/React.createElement("div", {
     className: "fup-txt"
-  }, estado === "enviando" && "Enviando para a nuvem…", estado === "ok" && "✅ Imagem salva na nuvem — clique para trocar", estado === "erro" && "❌ Erro — clique para tentar novamente", estado === "idle" && !form.imagemUrl && "Clique para escolher a imagem", estado === "idle" && form.imagemUrl && "✅ Imagem salva na nuvem — clique para trocar"), /*#__PURE__*/React.createElement("input", {
+  }, label), /*#__PURE__*/React.createElement("input", {
     ref: inputRef,
     type: "file",
     className: "fup-inp",
@@ -787,7 +818,7 @@ function CampoImagem({
     onChange: handleImg
   })), /*#__PURE__*/React.createElement("p", {
     className: "aviso"
-  }, "A imagem \xE9 enviada diretamente para a nuvem e fica dispon\xEDvel para sempre, em qualquer computador."));
+  }, "A imagem \xE9 enviada para a nuvem e fica dispon\xEDvel para todos."));
 }
 function App() {
   const hoje = new Date();
@@ -798,17 +829,35 @@ function App() {
   const [modal, setModal] = useState(false);
   const [editId, setEditId] = useState(null);
   const [form, setForm] = useState(eventoVazio());
+  const [carregando, setCarregando] = useState(true);
+  const [salvando, setSalvando] = useState(false);
+  const [erroConexao, setErroConexao] = useState(false);
   const importRef = useRef();
+  const carregar = async () => {
+    setCarregando(true);
+    setErroConexao(false);
+    try {
+      const dados = await carregarFirebase();
+      setEventos(dados);
+    } catch (_) {
+      setErroConexao(true);
+    } finally {
+      setCarregando(false);
+    }
+  };
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setEventos(JSON.parse(raw));
-    } catch (_) {}
+    carregar();
   }, []);
-  const persistir = lista => {
+  const persistir = async lista => {
+    setSalvando(true);
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(lista));
-    } catch (_) {}
+      await salvarFirebase(lista);
+      setEventos(lista);
+    } catch (_) {
+      alert("Erro ao salvar. Verifique a conexão com a internet.");
+    } finally {
+      setSalvando(false);
+    }
   };
   const filtrados = [...eventos].filter(e => {
     if (!e.dataInicio) return true;
@@ -839,7 +888,7 @@ function App() {
     ...f,
     [k]: v
   }));
-  const salvar = () => {
+  const salvar = async () => {
     if (!form.titulo.trim()) {
       alert("Preencha o título do evento.");
       return;
@@ -850,15 +899,12 @@ function App() {
       ...form,
       id: Date.now()
     }];
-    setEventos(nova);
-    persistir(nova);
     fechar();
+    await persistir(nova);
   };
-  const remover = id => {
+  const remover = async id => {
     if (!window.confirm("Remover este evento?")) return;
-    const nova = eventos.filter(e => e.id !== id);
-    setEventos(nova);
-    persistir(nova);
+    await persistir(eventos.filter(e => e.id !== id));
   };
   const mesAnterior = () => {
     if (mes === 0) {
@@ -887,12 +933,11 @@ function App() {
     const f = e.target.files[0];
     if (!f) return;
     const r = new FileReader();
-    r.onload = () => {
+    r.onload = async () => {
       try {
         const dados = JSON.parse(r.result);
         if (!Array.isArray(dados)) throw new Error();
-        setEventos(dados);
-        persistir(dados);
+        await persistir(dados);
         alert("Dados importados com sucesso!");
       } catch (_) {
         alert("Arquivo inválido.");
@@ -911,7 +956,14 @@ function App() {
     className: "hd-div"
   }), /*#__PURE__*/React.createElement("span", {
     className: "hd-nome"
-  }, "Gest\xE3o de Programa\xE7\xE3o")), /*#__PURE__*/React.createElement("div", {
+  }, "Gest\xE3o de Programa\xE7\xE3o"), salvando && /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 'auto',
+      fontSize: 11,
+      color: 'rgba(255,255,255,.6)',
+      letterSpacing: '.1em'
+    }
+  }, "Salvando\u2026")), /*#__PURE__*/React.createElement("div", {
     className: "tb"
   }, /*#__PURE__*/React.createElement("div", {
     className: "nav"
@@ -939,6 +991,9 @@ function App() {
     onClick: () => window.print()
   }, /*#__PURE__*/React.createElement(Printer, null), " Salvar PDF"), /*#__PURE__*/React.createElement("button", {
     className: "btn-sec",
+    onClick: carregar
+  }, /*#__PURE__*/React.createElement(Refresh, null), " Atualizar"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-sec",
     onClick: exportar
   }, /*#__PURE__*/React.createElement(Download, null), " Backup"), /*#__PURE__*/React.createElement("button", {
     className: "btn-sec",
@@ -951,7 +1006,28 @@ function App() {
     onChange: importar
   })), /*#__PURE__*/React.createElement("main", {
     className: "main"
-  }, modo === "livreto" ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, carregando ? /*#__PURE__*/React.createElement("div", {
+    className: "vazio"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "vz-t"
+  }, "Carregando programa\xE7\xE3o\u2026"), /*#__PURE__*/React.createElement("div", {
+    className: "vz-s"
+  }, "Buscando dados na nuvem")) : erroConexao ? /*#__PURE__*/React.createElement("div", {
+    className: "vazio"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "vz-t"
+  }, "Sem conex\xE3o"), /*#__PURE__*/React.createElement("div", {
+    className: "vz-s",
+    style: {
+      marginBottom: 16
+    }
+  }, "N\xE3o foi poss\xEDvel carregar os dados. Verifique a internet."), /*#__PURE__*/React.createElement("button", {
+    className: "btn-add",
+    onClick: carregar,
+    style: {
+      margin: '0 auto'
+    }
+  }, /*#__PURE__*/React.createElement(Refresh, null), " Tentar novamente")) : modo === "livreto" ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "lh"
   }, /*#__PURE__*/React.createElement("div", {
     className: "lh-mes"
