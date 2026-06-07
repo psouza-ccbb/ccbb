@@ -6,29 +6,29 @@
   <title>CCBB — Gestão de Programação</title>
   <style>
     :root {
-      --azul: #0038A8;
-      --azul-esc: #002680;
-      --azul-claro: #E8EEF8;
+      --azul: #465EFF;
+      --azul-esc: #2E47E0;
+      --azul-claro: #EAEDFF;
       --amarelo: #F9DD16;
       --fundo: #F0F4FA;
       --branco: #FFFFFF;
       --texto: #0A1433;
       --texto-sub: #5A6B8A;
-      --borda: #C8D4EC;
-      --borda-card: #D8E2F4;
+      --borda: #C0CBFF;
+      --borda-card: #D0D8FF;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{background:var(--fundo);font-family:'Segoe UI',system-ui,Arial,sans-serif;color:var(--texto)}
     .app{min-height:100vh;display:flex;flex-direction:column}
     .hd{background:var(--azul);padding:14px 28px;display:flex;align-items:center;gap:14px;flex-shrink:0}
-    .hd-marca{font-family:Verdana,Geneva,sans-serif;color:var(--amarelo);font-size:26px;font-weight:700;letter-spacing:.06em;line-height:1}
+    .hd-marca{font-family:Calibri,'Gill Sans',Calibri,sans-serif;color:var(--amarelo);font-size:26px;font-weight:700;letter-spacing:.06em;line-height:1}
     .hd-div{width:1px;height:30px;background:rgba(255,255,255,.25)}
     .hd-nome{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:300}
     .tb{background:var(--branco);border-bottom:1px solid var(--borda);padding:10px 28px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-shrink:0}
     .nav{display:flex;align-items:center;gap:6px}
     .nb{background:none;border:1px solid var(--borda);cursor:pointer;padding:4px 8px;border-radius:4px;color:var(--azul);display:flex;align-items:center;line-height:1}
     .nb:hover{background:var(--azul-claro)}
-    .ml{font-family:Verdana,Geneva,sans-serif;font-size:18px;font-weight:600;min-width:175px;text-align:center;color:var(--azul)}
+    .ml{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:18px;font-weight:600;min-width:175px;text-align:center;color:var(--azul)}
     .tabs{display:flex;gap:2px;background:var(--azul-claro);padding:3px;border-radius:6px;margin-left:auto}
     .tab{padding:5px 14px;border:none;background:none;cursor:pointer;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-sub);border-radius:4px;display:flex;align-items:center;gap:6px;transition:all .15s;white-space:nowrap}
     .tab.on{background:var(--azul);color:#fff}
@@ -38,7 +38,7 @@
     .btn-sec:hover{background:var(--azul-claro)}
     .main{padding:28px;flex:1}
     .lh{border-bottom:4px solid var(--amarelo);padding-bottom:14px;margin-bottom:28px}
-    .lh-mes{font-family:Verdana,Geneva,sans-serif;font-size:34px;font-weight:700;line-height:1;color:var(--azul)}
+    .lh-mes{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:34px;font-weight:700;line-height:1;color:var(--azul)}
     .lh-sub{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--texto-sub);margin-top:4px}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
     .card{background:var(--branco);border:1px solid var(--borda-card);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 4px rgba(0,56,168,.06)}
@@ -47,7 +47,7 @@
     .card-wrap{position:relative}
     .badge{position:absolute;top:10px;left:10px;background:var(--amarelo);color:var(--azul);font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:3px 8px;font-weight:700}
     .cb{padding:14px;flex:1}
-    .ct{font-family:Verdana,Geneva,sans-serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:7px;color:var(--azul)}
+    .ct{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:7px;color:var(--azul)}
     .cm{font-size:11px;color:var(--texto-sub);display:flex;flex-wrap:wrap;gap:3px 8px;margin-bottom:3px}
     .cs{font-size:12px;color:#3A4A60;line-height:1.7;margin-top:9px}
     .ce{display:inline-block;margin-top:9px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;background:var(--azul-claro);color:var(--azul);border:1px solid var(--borda)}
@@ -57,19 +57,19 @@
     .ba.rm:hover{background:#FEE8E8;color:#CC0000}
     .ag-item{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--borda-card);align-items:start}
     .ag-data{text-align:center}
-    .ag-dia{font-family:Verdana,Geneva,sans-serif;font-size:28px;font-weight:700;line-height:1;color:var(--azul)}
+    .ag-dia{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:28px;font-weight:700;line-height:1;color:var(--azul)}
     .ag-mano{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-sub);margin-top:1px}
     .ag-badge{display:inline-block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:2px 7px;background:var(--amarelo);color:var(--azul);font-weight:700;margin-bottom:5px}
-    .ag-tit{font-family:Verdana,Geneva,sans-serif;font-size:18px;font-weight:600;margin-bottom:4px;line-height:1.2;color:var(--azul)}
+    .ag-tit{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:18px;font-weight:600;margin-bottom:4px;line-height:1.2;color:var(--azul)}
     .ag-det{font-size:11px;color:var(--texto-sub);display:flex;flex-wrap:wrap;gap:3px 10px}
     .ag-ac{display:flex;gap:6px;margin-top:7px}
     .vazio{text-align:center;padding:60px 20px}
-    .vz-t{font-family:Verdana,Geneva,sans-serif;font-size:22px;color:var(--texto-sub);margin-bottom:6px}
+    .vz-t{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:22px;color:var(--texto-sub);margin-bottom:6px}
     .vz-s{font-size:13px;color:var(--texto-sub)}
     .ov{position:fixed;inset:0;background:rgba(0,20,60,.5);z-index:200;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:20px}
     .modal{background:#fff;width:100%;max-width:560px;margin:auto;border-radius:4px;overflow:hidden;box-shadow:0 8px 32px rgba(0,56,168,.2)}
     .mh{background:var(--azul);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-    .mt{font-family:Verdana,Geneva,sans-serif;font-size:20px;color:#fff;font-weight:600}
+    .mt{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:20px;color:#fff;font-weight:600}
     .bx{background:none;border:none;cursor:pointer;color:rgba(255,255,255,.6);padding:3px;display:flex}
     .bx:hover{color:#fff}
     .mc{padding:20px;display:flex;flex-direction:column;gap:13px}
@@ -107,6 +107,72 @@
     .ag-badge-previsto{background:#8A9DBF!important;color:#fff!important}
     .ag-tag-previsto{display:inline-flex;align-items:center;gap:4px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7a5c00;background:#fff8e0;padding:2px 6px;border-radius:3px}
     .status-toggle{display:flex;gap:8px}
+    .st-btn{flex:1;padding:9px;border:1px solid var(--borda);background:none;cursor:pointer;font-size:12px;color:var(--texto-sub);border-radius:4px;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
+    .st-btn:hover{background:var(--azul-claro)}
+    .st-confirmado{background:#e8f5ec!important;border-color:#1a7a3a!important;color:#1a7a3a!important;font-weight:600}
+    .st-previsto{background:#fff8e0!important;border-color:#c8a000!important;color:#7a5c00!important;font-weight:600}
+    
+    .btn-modo{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);cursor:pointer;padding:6px 12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;border-radius:4px;display:flex;align-items:center;gap:6px}
+    .btn-modo:hover{background:rgba(255,255,255,.25)}
+    .chips-bar{background:var(--branco);border-bottom:1px solid var(--borda);padding:8px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .chips-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-sub);display:flex;align-items:center;gap:4px;margin-right:4px}
+    .chip{background:none;border:1px solid var(--borda);cursor:pointer;padding:4px 12px;font-size:11px;color:var(--texto-sub);border-radius:20px;transition:all .15s;white-space:nowrap}
+    .chip:hover{border-color:var(--azul);color:var(--azul)}
+    .chip-ativo{background:var(--azul);border-color:var(--azul);color:#fff!important}
+    .login-overlay{position:fixed;inset:0;background:rgba(0,20,60,.7);z-index:300;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+    .login-box{background:#fff;padding:36px;border-radius:8px;width:320px;box-shadow:0 16px 48px rgba(0,56,168,.25);display:flex;flex-direction:column;gap:14px}
+    .login-logo{font-family:Calibri,'Gill Sans',Calibri,sans-serif;color:var(--azul);font-size:28px;font-weight:700;letter-spacing:.06em;text-align:center}
+    .login-titulo{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:16px;font-weight:600;color:var(--azul);text-align:center}
+    .login-desc{font-size:12px;color:var(--texto-sub);text-align:center;margin-top:-6px}
+    .btn-novo-ok{background:var(--azul);color:#fff;border:none;cursor:pointer;padding:8px 12px;border-radius:3px;font-size:14px}
+    .btn-novo-cancel{background:none;border:1px solid var(--borda);cursor:pointer;padding:8px 10px;border-radius:3px;font-size:12px;color:var(--texto-sub)}
+    .btn-filtro{background:none;border:1px solid var(--borda);cursor:pointer;padding:8px 12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-sub);border-radius:4px;display:flex;align-items:center;gap:6px;white-space:nowrap;transition:all .2s}
+    .btn-filtro:hover{background:var(--azul-claro);color:var(--azul)}
+    .btn-filtro.ativo{background:var(--azul);color:#fff;border-color:var(--azul)}
+    .faixa-filtro{background:var(--azul);color:#fff;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:8px 28px;display:flex;align-items:center;gap:8px}
+    .card-previsto{opacity:.75}
+    .badge-previsto{background:#8A9DBF!important;color:#fff!important}
+    .tag-previsto{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:3px 8px}
+    .status-badge{display:flex;align-items:center;gap:4px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:3px;margin-right:auto}
+    .status-confirmado{color:#1a7a3a;background:#e8f5ec}
+    .status-previsto{color:#7a5c00;background:#fff8e0}
+    .ag-previsto{opacity:.75}
+    .ag-badge-previsto{background:#8A9DBF!important;color:#fff!important}
+    .ag-tag-previsto{display:inline-flex;align-items:center;gap:4px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7a5c00;background:#fff8e0;padding:2px 6px;border-radius:3px}
+    .status-toggle{display:flex;gap:8px}
+    .st-btn{flex:1;padding:9px;border:1px solid var(--borda);background:none;cursor:pointer;font-size:12px;color:var(--texto-sub);border-radius:4px;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
+    .st-btn:hover{background:var(--azul-claro)}
+    .st-confirmado{background:#e8f5ec!important;border-color:#1a7a3a!important;color:#1a7a3a!important;font-weight:600}
+    .st-previsto{background:#fff8e0!important;border-color:#c8a000!important;color:#7a5c00!important;font-weight:600}
+    
+    .btn-modo{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);cursor:pointer;padding:6px 12px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#fff;border-radius:4px;display:flex;align-items:center;gap:6px}
+    .btn-modo:hover{background:rgba(255,255,255,.25)}
+    .chips-bar{background:var(--branco);border-bottom:1px solid var(--borda);padding:8px 28px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .chips-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-sub);display:flex;align-items:center;gap:4px;margin-right:4px}
+    .chip{background:none;border:1px solid var(--borda);cursor:pointer;padding:4px 12px;font-size:11px;color:var(--texto-sub);border-radius:20px;transition:all .15s;white-space:nowrap}
+    .chip:hover{border-color:var(--azul);color:var(--azul)}
+    .chip-ativo{background:var(--azul);border-color:var(--azul);color:#fff!important}
+    .login-overlay{position:fixed;inset:0;background:rgba(0,20,60,.7);z-index:300;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+    .login-box{background:#fff;padding:36px;border-radius:8px;width:320px;box-shadow:0 16px 48px rgba(0,56,168,.25);display:flex;flex-direction:column;gap:14px;align-items:center}
+    .login-box .fi{width:100%}
+    .login-titulo{font-family:Calibri,'Gill Sans',Calibri,sans-serif;font-size:16px;font-weight:600;color:var(--azul);text-align:center}
+    .login-desc{font-size:12px;color:var(--texto-sub);text-align:center;margin-top:-6px}
+    .btn-novo-ok{background:var(--azul);color:#fff;border:none;cursor:pointer;padding:8px 12px;border-radius:3px;font-size:14px}
+    .btn-novo-cancel{background:none;border:1px solid var(--borda);cursor:pointer;padding:8px 10px;border-radius:3px;font-size:12px;color:var(--texto-sub)}
+    .btn-filtro{background:none;border:1px solid var(--borda);cursor:pointer;padding:8px 12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-sub);border-radius:4px;display:flex;align-items:center;gap:6px;white-space:nowrap;transition:all .2s}
+    .btn-filtro:hover{background:var(--azul-claro);color:var(--azul)}
+    .btn-filtro.ativo{background:var(--azul);color:#fff;border-color:var(--azul)}
+    .faixa-filtro{background:var(--azul);color:#fff;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:8px 28px;display:flex;align-items:center;gap:8px}
+    .card-previsto{opacity:.75}
+    .badge-previsto{background:#8A9DBF!important;color:#fff!important}
+    .tag-previsto{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:3px 8px}
+    .status-badge{display:flex;align-items:center;gap:4px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:3px;margin-right:auto}
+    .status-confirmado{color:#1a7a3a;background:#e8f5ec}
+    .status-previsto{color:#7a5c00;background:#fff8e0}
+    .ag-previsto{opacity:.75}
+    .ag-badge-previsto{background:#8A9DBF!important;color:#fff!important}
+    .ag-tag-previsto{display:inline-flex;align-items:center;gap:4px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#7a5c00;background:#fff8e0;padding:2px 6px;border-radius:3px}
+    .status-toggle{display:flex;gap:8px;width:100%}
     .st-btn{flex:1;padding:9px;border:1px solid var(--borda);background:none;cursor:pointer;font-size:12px;color:var(--texto-sub);border-radius:4px;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
     .st-btn:hover{background:var(--azul-claro)}
     .st-confirmado{background:#e8f5ec!important;border-color:#1a7a3a!important;color:#1a7a3a!important;font-weight:600}
@@ -436,13 +502,16 @@ const {
   useEffect,
   useRef
 } = React;
-const MESES = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-const TIPOS = ["Exposição", "Teatro", "Música", "Cinema", "Ideias", "Educação e Mediação", "Área Externa", "CCBB Patrimônio"];
-const ESPACOS = ["Cinema I", "Cinema II", "Galeria 1º Andar", "Galeria 2º Andar", "Galeria 4º Andar", "Teatro I", "Teatro II", "Teatro III", "Biblioteca", "Área Externa", "Museu BB"];
-const CLASSIFICACOES = ["Livre", "10 anos", "12 anos", "14 anos", "16 anos", "18 anos"];
+const TIPOS_BASE = ["", "Exposição", "Teatro", "Música", "Cinema", "Ideias", "Educação e Mediação", "Área Externa", "CCBB Patrimônio"];
+const ESPACOS_BASE = ["", "Cinema I", "Cinema II", "Galeria 1º Andar", "Galeria 2º Andar", "Galeria 4º Andar", "Teatro I", "Teatro II", "Teatro III", "Biblioteca", "Área Externa", "Museu BB"];
+const CLASSIFICACOES_BASE = ["", "Livre", "10 anos", "12 anos", "14 anos", "16 anos", "18 anos", "Conforme programação"];
+const ENTRADAS_BASE = ["", "Gratuita", "Paga"];
 const FIREBASE_URL = "https://ccbb-programacao-default-rtdb.firebaseio.com";
 const CLOUDINARY_CLOUD = "dpelqzyid";
 const CLOUDINARY_PRESET = "ccbb_upload";
+const SENHA_EDITOR = "ccbb8244";
+
+// ---- Ícones ----
 const ChevronLeft = () => /*#__PURE__*/React.createElement("svg", {
   width: "14",
   height: "14",
@@ -664,6 +733,44 @@ const Refresh = () => /*#__PURE__*/React.createElement("svg", {
 }), /*#__PURE__*/React.createElement("path", {
   d: "M20.49 15a9 9 0 1 1-2.12-9.36L23 10"
 }));
+const Lock = () => /*#__PURE__*/React.createElement("svg", {
+  width: "13",
+  height: "13",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("rect", {
+  x: "3",
+  y: "11",
+  width: "18",
+  height: "11",
+  rx: "2",
+  ry: "2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M7 11V7a5 5 0 0 1 10 0v4"
+}));
+const Unlock = () => /*#__PURE__*/React.createElement("svg", {
+  width: "13",
+  height: "13",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("rect", {
+  x: "3",
+  y: "11",
+  width: "18",
+  height: "11",
+  rx: "2",
+  ry: "2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M7 11V7a5 5 0 0 1 9.9-1"
+}));
 const ImageIcon = () => /*#__PURE__*/React.createElement("svg", {
   width: "24",
   height: "24",
@@ -735,17 +842,30 @@ const Clock = () => /*#__PURE__*/React.createElement("svg", {
 }), /*#__PURE__*/React.createElement("polyline", {
   points: "12 6 12 12 16 14"
 }));
+const Filter = () => /*#__PURE__*/React.createElement("svg", {
+  width: "12",
+  height: "12",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("polygon", {
+  points: "22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"
+}));
+const MESES = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 const eventoVazio = () => ({
   id: Date.now() + Math.random(),
   titulo: "",
-  tipo: "Exposição",
-  espaco: "Teatro I",
+  tipo: "",
+  espaco: "",
   dataInicio: "",
   dataFim: "",
   horarios: "",
-  entrada: "Gratuita",
+  entrada: "",
   valorEntrada: "",
-  classificacao: "Livre",
+  classificacao: "",
   classificacaoDetalhe: "",
   sinopse: "",
   imagemUrl: "",
@@ -761,17 +881,35 @@ const fmtPeriodo = (i, f) => {
   if (!f || i === f) return fmtData(i);
   return `${fmtData(i)} — ${fmtData(f)}`;
 };
-const exibirEntrada = ev => ev.entrada === "Paga" && ev.valorEntrada ? `Paga — ${ev.valorEntrada}` : ev.entrada;
-const exibirClassificacao = ev => ev.classificacaoDetalhe ? `${ev.classificacao} — ${ev.classificacaoDetalhe}` : ev.classificacao;
+const exibirEntrada = ev => {
+  if (!ev.entrada) return null;
+  if (ev.entrada === "Paga" && ev.valorEntrada) return `Paga — ${ev.valorEntrada}`;
+  return ev.entrada;
+};
+const exibirClassificacao = ev => {
+  if (!ev.classificacao) return null;
+  return ev.classificacaoDetalhe ? `${ev.classificacao} — ${ev.classificacaoDetalhe}` : ev.classificacao;
+};
+
+// ---- Firebase ----
 async function carregarFirebase() {
-  const res = await fetch(`${FIREBASE_URL}/eventos.json`);
-  if (!res.ok) throw new Error();
-  const data = await res.json();
-  if (!data) return [];
-  if (Array.isArray(data)) return data.filter(Boolean);
-  return Object.values(data).filter(Boolean);
+  const [evRes, cfgRes] = await Promise.all([fetch(`${FIREBASE_URL}/eventos.json`), fetch(`${FIREBASE_URL}/config.json`)]);
+  if (!evRes.ok) throw new Error();
+  const evData = await evRes.json();
+  const cfgData = cfgRes.ok ? await cfgRes.json() : null;
+  const eventos = !evData ? [] : Array.isArray(evData) ? evData.filter(Boolean) : Object.values(evData).filter(Boolean);
+  const config = cfgData || {
+    tiposExtras: [],
+    espacosExtras: [],
+    classificacoesExtras: [],
+    entradasExtras: []
+  };
+  return {
+    eventos,
+    config
+  };
 }
-async function salvarFirebase(lista) {
+async function salvarEventos(lista) {
   const res = await fetch(`${FIREBASE_URL}/eventos.json`, {
     method: "PUT",
     headers: {
@@ -780,6 +918,15 @@ async function salvarFirebase(lista) {
     body: JSON.stringify(lista)
   });
   if (!res.ok) throw new Error();
+}
+async function salvarConfig(cfg) {
+  await fetch(`${FIREBASE_URL}/config.json`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(cfg)
+  });
 }
 async function uploadCloudinary(file) {
   const fd = new FormData();
@@ -792,6 +939,64 @@ async function uploadCloudinary(file) {
   if (!res.ok) throw new Error();
   return (await res.json()).secure_url;
 }
+
+// ---- Select com opção de adicionar novo ----
+function SelectComNovo({
+  label,
+  value,
+  onChange,
+  opcoes,
+  onNovaOpcao,
+  placeholder = "(não informado)"
+}) {
+  const [novoMode, setNovoMode] = useState(false);
+  const [novoValor, setNovoValor] = useState("");
+  const handleChange = e => {
+    if (e.target.value === "__novo__") setNovoMode(true);else onChange(e.target.value);
+  };
+  const confirmar = () => {
+    const v = novoValor.trim();
+    if (!v) return;
+    if (onNovaOpcao) onNovaOpcao(v);
+    onChange(v);
+    setNovoMode(false);
+    setNovoValor("");
+  };
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "fl"
+  }, label), novoMode ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 6
+    }
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "fi",
+    value: novoValor,
+    onChange: e => setNovoValor(e.target.value),
+    placeholder: "Digite o novo item\u2026",
+    onKeyDown: e => e.key === "Enter" && confirmar(),
+    autoFocus: true
+  }), /*#__PURE__*/React.createElement("button", {
+    className: "btn-novo-ok",
+    onClick: confirmar
+  }, "\u2713"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-novo-cancel",
+    onClick: () => setNovoMode(false)
+  }, "\u2715")) : /*#__PURE__*/React.createElement("select", {
+    className: "fi",
+    value: value,
+    onChange: handleChange
+  }, /*#__PURE__*/React.createElement("option", {
+    value: ""
+  }, placeholder), opcoes.filter(o => o !== "").map(o => /*#__PURE__*/React.createElement("option", {
+    key: o,
+    value: o
+  }, o)), onNovaOpcao && /*#__PURE__*/React.createElement("option", {
+    value: "__novo__"
+  }, "+ Adicionar novo\u2026")));
+}
+
+// ---- Imagem ----
 function ImgEvento({
   ev,
   className
@@ -872,25 +1077,103 @@ function CampoImagem({
     className: "aviso"
   }, "A imagem \xE9 enviada para a nuvem e fica dispon\xEDvel para todos."));
 }
+
+// ---- Login ----
+function TelaLogin({
+  onLogin
+}) {
+  const [senha, setSenha] = useState("");
+  const tentar = () => {
+    if (senha === SENHA_EDITOR) onLogin();else {
+      alert("Senha incorreta.");
+      setSenha("");
+    }
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: "login-overlay"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "login-box"
+  }, /*#__PURE__*/React.createElement(LogoCCBB, null), /*#__PURE__*/React.createElement("div", {
+    className: "login-titulo"
+  }, "Modo Editor"), /*#__PURE__*/React.createElement("p", {
+    className: "login-desc"
+  }, "Digite a senha para editar a programa\xE7\xE3o"), /*#__PURE__*/React.createElement("input", {
+    className: "fi",
+    type: "password",
+    value: senha,
+    onChange: e => setSenha(e.target.value),
+    onKeyDown: e => e.key === "Enter" && tentar(),
+    placeholder: "Senha",
+    autoFocus: true
+  }), /*#__PURE__*/React.createElement("button", {
+    className: "bsv",
+    style: {
+      width: '100%',
+      marginTop: 8,
+      padding: '10px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8
+    },
+    onClick: tentar
+  }, /*#__PURE__*/React.createElement(Unlock, null), " Entrar")));
+}
+
+// ---- Logo CCBB (placeholder elegante — substituir pelo arquivo oficial) ----
+function LogoCCBB({
+  tamanho = "normal"
+}) {
+  const h = tamanho === "grande" ? 64 : 44;
+  return /*#__PURE__*/React.createElement("img", {
+    src: "data:image/png;base64,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",
+    height: h,
+    alt: "CCBB",
+    style: {
+      display: 'block',
+      objectFit: 'contain'
+    }
+  });
+}
+
+// ---- App ----
 function App() {
   const hoje = new Date();
   const [mes, setMes] = useState(hoje.getMonth());
   const [ano, setAno] = useState(hoje.getFullYear());
   const [eventos, setEventos] = useState([]);
+  const [config, setConfig] = useState({
+    tiposExtras: [],
+    espacosExtras: [],
+    classificacoesExtras: [],
+    entradasExtras: []
+  });
   const [modo, setModo] = useState("livreto");
   const [modal, setModal] = useState(false);
   const [editId, setEditId] = useState(null);
-  const [form, setForm] = useState(eventoVazio());
+  const [form, setForm] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [salvando, setSalvando] = useState(false);
   const [erroConexao, setErroConexao] = useState(false);
   const [apenasConfirmados, setApenasConfirmados] = useState(false);
+  const [tiposFiltro, setTiposFiltro] = useState([]);
+  const [autenticado, setAutenticado] = useState(false);
+  const [mostrarLogin, setMostrarLogin] = useState(false);
   const importRef = useRef();
+  const todosOsTipos = [...TIPOS_BASE.filter(t => t), ...(config.tiposExtras || [])];
+  const todosOsEspacos = [...ESPACOS_BASE.filter(s => s), ...(config.espacosExtras || [])];
+  const todasAsClassificacoes = [...CLASSIFICACOES_BASE.filter(c => c), ...(config.classificacoesExtras || [])];
+  const todasAsEntradas = [...ENTRADAS_BASE.filter(e => e), ...(config.entradasExtras || [])];
   const carregar = async () => {
     setCarregando(true);
     setErroConexao(false);
     try {
-      setEventos(await carregarFirebase());
+      const {
+        eventos: evs,
+        config: cfg
+      } = await carregarFirebase();
+      setEventos(evs);
+      setConfig(cfg);
     } catch (_) {
       setErroConexao(true);
     } finally {
@@ -900,26 +1183,60 @@ function App() {
   useEffect(() => {
     carregar();
   }, []);
-  const persistir = async lista => {
+  const persistirEventos = async lista => {
     setSalvando(true);
     try {
-      await salvarFirebase(lista);
+      await salvarEventos(lista);
       setEventos(lista);
     } catch (_) {
-      alert("Erro ao salvar. Verifique a conexão.");
+      alert("Erro ao salvar.");
     } finally {
       setSalvando(false);
     }
   };
+  const persistirConfig = async novo => {
+    setConfig(novo);
+    try {
+      await salvarConfig(novo);
+    } catch (_) {}
+  };
+  const addExtra = (campo, valor) => {
+    if (!valor) return;
+    const atual = config[campo] || [];
+    if ([...TIPOS_BASE, ...ESPACOS_BASE, ...CLASSIFICACOES_BASE, ...ENTRADAS_BASE, ...atual].includes(valor)) return;
+    persistirConfig({
+      ...config,
+      [campo]: [...atual, valor]
+    });
+  };
+  const tiposNoMes = [...new Set(eventos.filter(e => {
+    if (!e.dataInicio) return true;
+    const ini = new Date(ano, mes, 1),
+      fim = new Date(ano, mes + 1, 0);
+    const di = new Date(e.dataInicio + "T00:00:00");
+    const df = e.dataFim ? new Date(e.dataFim + "T00:00:00") : di;
+    return di <= fim && df >= ini;
+  }).map(e => e.tipo).filter(Boolean))].sort();
+  const toggleFiltro = t => setTiposFiltro(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
   const filtrados = [...eventos].filter(e => {
     if (apenasConfirmados && e.status !== "Confirmado") return false;
+    if (tiposFiltro.length > 0 && !tiposFiltro.includes(e.tipo)) return false;
     if (!e.dataInicio) return true;
-    const inicioMes = new Date(ano, mes, 1),
-      fimMes = new Date(ano, mes + 1, 0);
-    const dInicio = new Date(e.dataInicio + "T00:00:00");
-    const dFim = e.dataFim ? new Date(e.dataFim + "T00:00:00") : dInicio;
-    return dInicio <= fimMes && dFim >= inicioMes;
+    const ini = new Date(ano, mes, 1),
+      fim = new Date(ano, mes + 1, 0);
+    const di = new Date(e.dataInicio + "T00:00:00");
+    const df = e.dataFim ? new Date(e.dataFim + "T00:00:00") : di;
+    return di <= fim && df >= ini;
   }).sort((a, b) => (a.dataInicio || "").localeCompare(b.dataInicio || ""));
+  const previstosNoMes = eventos.filter(e => {
+    if (e.status === "Confirmado") return false;
+    if (!e.dataInicio) return true;
+    const ini = new Date(ano, mes, 1),
+      fim = new Date(ano, mes + 1, 0);
+    const di = new Date(e.dataInicio + "T00:00:00"),
+      df = e.dataFim ? new Date(e.dataFim + "T00:00:00") : di;
+    return di <= fim && df >= ini;
+  }).length;
   const abrirNovo = () => {
     setForm(eventoVazio());
     setEditId(null);
@@ -935,7 +1252,7 @@ function App() {
   };
   const fechar = () => {
     setModal(false);
-    setForm(eventoVazio());
+    setForm(null);
     setEditId(null);
   };
   const hf = (k, v) => setForm(f => ({
@@ -954,11 +1271,11 @@ function App() {
       id: Date.now()
     }];
     fechar();
-    await persistir(nova);
+    await persistirEventos(nova);
   };
   const remover = async id => {
     if (!window.confirm("Remover este evento?")) return;
-    await persistir(eventos.filter(e => e.id !== id));
+    await persistirEventos(eventos.filter(e => e.id !== id));
   };
   const mesAnterior = () => {
     if (mes === 0) {
@@ -991,7 +1308,7 @@ function App() {
       try {
         const d = JSON.parse(r.result);
         if (!Array.isArray(d)) throw new Error();
-        await persistir(d);
+        await persistirEventos(d);
         alert("Importado!");
       } catch (_) {
         alert("Arquivo inválido.");
@@ -1000,33 +1317,39 @@ function App() {
     r.readAsText(f);
     e.target.value = "";
   };
-  const previstosNoMes = eventos.filter(e => {
-    if (e.status === "Confirmado") return false;
-    if (!e.dataInicio) return true;
-    const inicioMes = new Date(ano, mes, 1),
-      fimMes = new Date(ano, mes + 1, 0);
-    const dInicio = new Date(e.dataInicio + "T00:00:00");
-    const dFim = e.dataFim ? new Date(e.dataFim + "T00:00:00") : dInicio;
-    return dInicio <= fimMes && dFim >= inicioMes;
-  }).length;
   return /*#__PURE__*/React.createElement("div", {
     className: "app"
-  }, /*#__PURE__*/React.createElement("header", {
+  }, mostrarLogin && !autenticado && /*#__PURE__*/React.createElement(TelaLogin, {
+    onLogin: () => {
+      setAutenticado(true);
+      setMostrarLogin(false);
+    }
+  }), /*#__PURE__*/React.createElement("header", {
     className: "hd"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "hd-marca"
-  }, "CCBB"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(LogoCCBB, null), /*#__PURE__*/React.createElement("div", {
     className: "hd-div"
   }), /*#__PURE__*/React.createElement("span", {
     className: "hd-nome"
-  }, "Livreto de Programa\xE7\xE3o"), salvando && /*#__PURE__*/React.createElement("span", {
+  }, "Livreto de Programa\xE7\xE3o"), /*#__PURE__*/React.createElement("div", {
     style: {
       marginLeft: 'auto',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10
+    }
+  }, salvando && /*#__PURE__*/React.createElement("span", {
+    style: {
       fontSize: 11,
       color: 'rgba(255,255,255,.6)',
       letterSpacing: '.1em'
     }
-  }, "Salvando\u2026")), /*#__PURE__*/React.createElement("div", {
+  }, "Salvando\u2026"), autenticado ? /*#__PURE__*/React.createElement("button", {
+    className: "btn-modo",
+    onClick: () => setAutenticado(false)
+  }, /*#__PURE__*/React.createElement(Lock, null), " Sair do editor") : /*#__PURE__*/React.createElement("button", {
+    className: "btn-modo",
+    onClick: () => setMostrarLogin(true)
+  }, /*#__PURE__*/React.createElement(Unlock, null), " Modo editor"))), /*#__PURE__*/React.createElement("div", {
     className: "tb"
   }, /*#__PURE__*/React.createElement("div", {
     className: "nav"
@@ -1046,11 +1369,10 @@ function App() {
   }, /*#__PURE__*/React.createElement(BookOpen, null), " Livreto"), /*#__PURE__*/React.createElement("button", {
     className: `tab ${modo === "agenda" ? "on" : ""}`,
     onClick: () => setModo("agenda")
-  }, /*#__PURE__*/React.createElement(CalendarIcon, null), " Agenda")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement(CalendarIcon, null), " Agenda")), autenticado && /*#__PURE__*/React.createElement("button", {
     className: `btn-filtro ${apenasConfirmados ? "ativo" : ""}`,
-    onClick: () => setApenasConfirmados(v => !v),
-    title: apenasConfirmados ? "Mostrando apenas confirmados — clique para ver todos" : "Mostrando todos — clique para filtrar confirmados"
-  }, apenasConfirmados ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(CheckCircle, null), " S\xF3 confirmados") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Clock, null), " Todos (", previstosNoMes, " previsto", previstosNoMes !== 1 ? "s" : "", ")")), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setApenasConfirmados(v => !v)
+  }, apenasConfirmados ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(CheckCircle, null), " S\xF3 confirmados") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Clock, null), " Todos (", previstosNoMes, " previsto", previstosNoMes !== 1 ? "s" : "", ")")), autenticado && /*#__PURE__*/React.createElement("button", {
     className: "btn-add",
     onClick: abrirNovo
   }, /*#__PURE__*/React.createElement(Plus, null), " Adicionar"), /*#__PURE__*/React.createElement("button", {
@@ -1059,7 +1381,7 @@ function App() {
   }, /*#__PURE__*/React.createElement(Printer, null), " PDF"), /*#__PURE__*/React.createElement("button", {
     className: "btn-sec",
     onClick: carregar
-  }, /*#__PURE__*/React.createElement(Refresh, null), " Atualizar"), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement(Refresh, null), " Atualizar"), autenticado && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
     className: "btn-sec",
     onClick: exportar
   }, /*#__PURE__*/React.createElement(Download, null), " Backup"), /*#__PURE__*/React.createElement("button", {
@@ -1071,9 +1393,20 @@ function App() {
     accept: ".json",
     className: "inp-file-hidden",
     onChange: importar
-  })), apenasConfirmados && /*#__PURE__*/React.createElement("div", {
+  }))), tiposNoMes.length > 1 && /*#__PURE__*/React.createElement("div", {
+    className: "chips-bar"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "chips-label"
+  }, /*#__PURE__*/React.createElement(Filter, null), " Filtrar:"), /*#__PURE__*/React.createElement("button", {
+    className: `chip ${tiposFiltro.length === 0 ? "chip-ativo" : ""}`,
+    onClick: () => setTiposFiltro([])
+  }, "Todos"), tiposNoMes.map(t => /*#__PURE__*/React.createElement("button", {
+    key: t,
+    className: `chip ${tiposFiltro.includes(t) ? "chip-ativo" : ""}`,
+    onClick: () => toggleFiltro(t)
+  }, t))), apenasConfirmados && /*#__PURE__*/React.createElement("div", {
     className: "faixa-filtro"
-  }, /*#__PURE__*/React.createElement(CheckCircle, null), " Exibindo apenas eventos confirmados \u2014 o PDF vai incluir somente estes"), /*#__PURE__*/React.createElement("main", {
+  }, /*#__PURE__*/React.createElement(CheckCircle, null), " Exibindo apenas eventos confirmados \u2014 o PDF incluir\xE1 somente estes"), /*#__PURE__*/React.createElement("main", {
     className: "main"
   }, carregando ? /*#__PURE__*/React.createElement("div", {
     className: "vazio"
@@ -1106,12 +1439,14 @@ function App() {
     className: "vazio"
   }, /*#__PURE__*/React.createElement("div", {
     className: "vz-t"
-  }, "Nenhum evento ", apenasConfirmados ? "confirmado " : "", "em ", MESES[mes]), /*#__PURE__*/React.createElement("div", {
+  }, "Nenhum evento encontrado"), /*#__PURE__*/React.createElement("div", {
     className: "vz-s"
-  }, "Clique em \"Adicionar\" para come\xE7ar")) : /*#__PURE__*/React.createElement("div", {
+  }, tiposFiltro.length > 0 ? "Tente remover os filtros" : autenticado ? "Clique em Adicionar para começar" : "")) : /*#__PURE__*/React.createElement("div", {
     className: "grid"
   }, filtrados.map(ev => {
     const previsto = ev.status === "Previsto";
+    const cl = exibirClassificacao(ev);
+    const en = exibirEntrada(ev);
     return /*#__PURE__*/React.createElement("div", {
       key: ev.id,
       className: `card ${previsto ? "card-previsto" : ""}`
@@ -1120,7 +1455,7 @@ function App() {
     }, /*#__PURE__*/React.createElement(ImgEvento, {
       ev: ev,
       className: "card-img"
-    }), /*#__PURE__*/React.createElement("span", {
+    }), ev.tipo && /*#__PURE__*/React.createElement("span", {
       className: `badge ${previsto ? "badge-previsto" : ""}`
     }, ev.tipo), previsto && /*#__PURE__*/React.createElement("span", {
       className: "tag-previsto"
@@ -1130,13 +1465,13 @@ function App() {
       className: "ct"
     }, ev.titulo), /*#__PURE__*/React.createElement("div", {
       className: "cm"
-    }, /*#__PURE__*/React.createElement("span", null, ev.espaco), ev.dataInicio && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, fmtPeriodo(ev.dataInicio, ev.dataFim))), ev.horarios && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, ev.horarios))), /*#__PURE__*/React.createElement("div", {
+    }, ev.espaco && /*#__PURE__*/React.createElement("span", null, ev.espaco), ev.dataInicio && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, fmtPeriodo(ev.dataInicio, ev.dataFim))), ev.horarios && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, ev.horarios))), cl && /*#__PURE__*/React.createElement("div", {
       className: "cm"
-    }, /*#__PURE__*/React.createElement("span", null, "Classifica\xE7\xE3o: ", exibirClassificacao(ev))), ev.sinopse && /*#__PURE__*/React.createElement("p", {
+    }, /*#__PURE__*/React.createElement("span", null, "Classifica\xE7\xE3o: ", cl)), ev.sinopse && /*#__PURE__*/React.createElement("p", {
       className: "cs"
-    }, ev.sinopse), /*#__PURE__*/React.createElement("span", {
+    }, ev.sinopse), en && /*#__PURE__*/React.createElement("span", {
       className: "ce"
-    }, exibirEntrada(ev))), /*#__PURE__*/React.createElement("div", {
+    }, en)), autenticado && /*#__PURE__*/React.createElement("div", {
       className: "ca"
     }, /*#__PURE__*/React.createElement("span", {
       className: `status-badge ${previsto ? "status-previsto" : "status-confirmado"}`
@@ -1157,9 +1492,11 @@ function App() {
     className: "vazio"
   }, /*#__PURE__*/React.createElement("div", {
     className: "vz-t"
-  }, "Nenhum evento ", apenasConfirmados ? "confirmado " : "", "em ", MESES[mes])) : /*#__PURE__*/React.createElement("div", null, filtrados.map(ev => {
+  }, "Nenhum evento encontrado")) : /*#__PURE__*/React.createElement("div", null, filtrados.map(ev => {
     const d = ev.dataInicio ? new Date(ev.dataInicio + "T00:00:00") : null;
     const previsto = ev.status === "Previsto";
+    const cl = exibirClassificacao(ev);
+    const en = exibirEntrada(ev);
     return /*#__PURE__*/React.createElement("div", {
       key: ev.id,
       className: `ag-item ${previsto ? "ag-previsto" : ""}`
@@ -1176,9 +1513,10 @@ function App() {
         display: 'flex',
         alignItems: 'center',
         gap: 6,
-        marginBottom: 4
+        marginBottom: 4,
+        flexWrap: 'wrap'
       }
-    }, /*#__PURE__*/React.createElement("span", {
+    }, ev.tipo && /*#__PURE__*/React.createElement("span", {
       className: `ag-badge ${previsto ? "ag-badge-previsto" : ""}`
     }, ev.tipo), previsto && /*#__PURE__*/React.createElement("span", {
       className: "ag-tag-previsto"
@@ -1186,7 +1524,7 @@ function App() {
       className: "ag-tit"
     }, ev.titulo), /*#__PURE__*/React.createElement("div", {
       className: "ag-det"
-    }, /*#__PURE__*/React.createElement("span", null, ev.espaco), ev.dataInicio && /*#__PURE__*/React.createElement("span", null, fmtPeriodo(ev.dataInicio, ev.dataFim)), ev.horarios && /*#__PURE__*/React.createElement("span", null, ev.horarios), /*#__PURE__*/React.createElement("span", null, exibirEntrada(ev)), /*#__PURE__*/React.createElement("span", null, "Cl. ", exibirClassificacao(ev))), /*#__PURE__*/React.createElement("div", {
+    }, ev.espaco && /*#__PURE__*/React.createElement("span", null, ev.espaco), ev.dataInicio && /*#__PURE__*/React.createElement("span", null, fmtPeriodo(ev.dataInicio, ev.dataFim)), ev.horarios && /*#__PURE__*/React.createElement("span", null, ev.horarios), en && /*#__PURE__*/React.createElement("span", null, en), cl && /*#__PURE__*/React.createElement("span", null, "Cl. ", cl)), autenticado && /*#__PURE__*/React.createElement("div", {
       className: "ag-ac"
     }, /*#__PURE__*/React.createElement("button", {
       className: "ba",
@@ -1195,7 +1533,7 @@ function App() {
       className: "ba rm",
       onClick: () => remover(ev.id)
     }, /*#__PURE__*/React.createElement(Trash, null), " Remover"))));
-  })))), modal && /*#__PURE__*/React.createElement("div", {
+  })))), modal && form && /*#__PURE__*/React.createElement("div", {
     className: "ov",
     onClick: e => e.target === e.currentTarget && fechar()
   }, /*#__PURE__*/React.createElement("div", {
@@ -1228,23 +1566,19 @@ function App() {
     placeholder: "Nome do evento"
   })), /*#__PURE__*/React.createElement("div", {
     className: "fg2"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    className: "fl"
-  }, "Tipo"), /*#__PURE__*/React.createElement("select", {
-    className: "fi",
+  }, /*#__PURE__*/React.createElement(SelectComNovo, {
+    label: "Tipo",
     value: form.tipo,
-    onChange: e => hf("tipo", e.target.value)
-  }, TIPOS.map(t => /*#__PURE__*/React.createElement("option", {
-    key: t
-  }, t)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
-    className: "fl"
-  }, "Espa\xE7o"), /*#__PURE__*/React.createElement("select", {
-    className: "fi",
+    onChange: v => hf("tipo", v),
+    opcoes: todosOsTipos,
+    onNovaOpcao: v => addExtra("tiposExtras", v)
+  }), /*#__PURE__*/React.createElement(SelectComNovo, {
+    label: "Espa\xE7o",
     value: form.espaco,
-    onChange: e => hf("espaco", e.target.value)
-  }, ESPACOS.map(s => /*#__PURE__*/React.createElement("option", {
-    key: s
-  }, s))))), /*#__PURE__*/React.createElement("div", {
+    onChange: v => hf("espaco", v),
+    opcoes: todosOsEspacos,
+    onNovaOpcao: v => addExtra("espacosExtras", v)
+  })), /*#__PURE__*/React.createElement("div", {
     className: "fg2"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "fl"
@@ -1271,31 +1605,37 @@ function App() {
     className: "fl"
   }, "Entrada"), /*#__PURE__*/React.createElement("div", {
     className: "fg2"
-  }, /*#__PURE__*/React.createElement("select", {
-    className: "fi",
+  }, /*#__PURE__*/React.createElement(SelectComNovo, {
+    label: "",
     value: form.entrada,
-    onChange: e => hf("entrada", e.target.value)
-  }, /*#__PURE__*/React.createElement("option", null, "Gratuita"), /*#__PURE__*/React.createElement("option", null, "Paga")), form.entrada === "Paga" && /*#__PURE__*/React.createElement("input", {
+    onChange: v => hf("entrada", v),
+    opcoes: todasAsEntradas,
+    onNovaOpcao: v => addExtra("entradasExtras", v)
+  }), form.entrada === "Paga" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "fl"
+  }, "Valor"), /*#__PURE__*/React.createElement("input", {
     className: "fi",
     value: form.valorEntrada,
     onChange: e => hf("valorEntrada", e.target.value),
     placeholder: "Ex: R$ 20,00 / R$ 10,00 meia"
-  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+  })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "fl"
   }, "Classifica\xE7\xE3o indicativa"), /*#__PURE__*/React.createElement("div", {
     className: "fg2"
-  }, /*#__PURE__*/React.createElement("select", {
-    className: "fi",
+  }, /*#__PURE__*/React.createElement(SelectComNovo, {
+    label: "",
     value: form.classificacao,
-    onChange: e => hf("classificacao", e.target.value)
-  }, CLASSIFICACOES.map(c => /*#__PURE__*/React.createElement("option", {
-    key: c
-  }, c))), /*#__PURE__*/React.createElement("input", {
+    onChange: v => hf("classificacao", v),
+    opcoes: todasAsClassificacoes,
+    onNovaOpcao: v => addExtra("classificacoesExtras", v)
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    className: "fl"
+  }, "Detalhe opcional"), /*#__PURE__*/React.createElement("input", {
     className: "fi",
     value: form.classificacaoDetalhe,
     onChange: e => hf("classificacaoDetalhe", e.target.value),
-    placeholder: "Detalhe opcional"
-  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+    placeholder: "Ex: cenas de viol\xEAncia leve"
+  })))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     className: "fl"
   }, "Sinopse"), /*#__PURE__*/React.createElement("textarea", {
     className: "fi fta",
