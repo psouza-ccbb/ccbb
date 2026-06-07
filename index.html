@@ -1220,6 +1220,7 @@ function App() {
   const toggleFiltro = t => setTiposFiltro(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
   const filtrados = [...eventos].filter(e => {
     if (apenasConfirmados && e.status !== "Confirmado") return false;
+    if (!autenticado && e.status !== "Confirmado") return false;
     if (tiposFiltro.length > 0 && !tiposFiltro.includes(e.tipo)) return false;
     if (!e.dataInicio) return true;
     const ini = new Date(ano, mes, 1),
